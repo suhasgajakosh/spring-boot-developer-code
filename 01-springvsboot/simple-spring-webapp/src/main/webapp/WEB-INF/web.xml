@@ -5,6 +5,11 @@
 <web-app>	 
   <display-name>Simple Spring Web Application</display-name>
   
+  <!-- ContextLoaderListener creates a root web-application-context for the web-application and puts it in the ServletContext.
+       This context can be used to load and unload the spring-managed beans ir-respective of what technology is being used in
+       the controller layer(Struts or Spring MVC).
+  -->
+  
   <!-- 
   <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -16,7 +21,10 @@
   </context-param>
   -->
 	  
-	  
+  <!--
+	  DispatcherServlet creates its own WebApplicationContext and the handlers/controllers/view-resolvers are managed 
+	  by this context.
+  -->	  
   <servlet>
       <servlet-name>dispatcherServlet</servlet-name>
       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
