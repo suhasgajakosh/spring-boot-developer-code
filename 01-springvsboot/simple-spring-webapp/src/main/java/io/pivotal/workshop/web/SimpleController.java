@@ -13,7 +13,7 @@ public class SimpleController{
 	public ModelAndView helloWorld(){
  
 		ModelAndView model = new ModelAndView("showMessage");
-		model.addObject("message", "Spring MVC Web App with annotations");
+		model.addObject("message", "Simple Spring MVC Web App");
  
 		return model;
 	}
