@@ -67,5 +67,4 @@ public class Snippet {
 	public void setModified(Date modified) {
 		this.modified = modified;
 	}
-	
 }

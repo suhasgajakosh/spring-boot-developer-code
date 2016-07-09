@@ -10,11 +10,13 @@ import io.pivotal.web.domain.Snippet;
 
 @Repository
 public class SnippetRepository {
-	
+
 	@SuppressWarnings("serial")
 	private List<Snippet> snippets =  new ArrayList<Snippet>() {{
 		add(new Snippet("JavaScript: Hello World","console.log('Hello World!');"));
 		add(new Snippet("HTML: Hello World","<html><body><h1>Hello World</h1></body></html>"));
+		add(new Snippet("Bash: Hello World","echo \"Hello World\""));
+		add(new Snippet("Python: Hello World","print \"Hello World\""));
 	}};
 	
 	public void save(Snippet snippet){

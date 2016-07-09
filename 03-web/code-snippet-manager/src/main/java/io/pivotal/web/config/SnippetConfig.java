@@ -3,7 +3,7 @@ package io.pivotal.web.config;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 //@Configuration
-public class WebConfig extends WebMvcConfigurationSupport { //extends WebMvcConfigurerAdapter
+public class SnippetConfig extends WebMvcConfigurationSupport { //extends WebMvcConfigurerAdapter
 
 	/*
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
