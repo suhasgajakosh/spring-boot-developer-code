@@ -2,6 +2,7 @@ package io.pivotal.web.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,11 +12,24 @@ import io.pivotal.web.domain.Snippet;
 public class SnippetRepository {
 	
 	@SuppressWarnings("serial")
-	public List<Snippet> findAll(){
-		return new ArrayList<Snippet>() {{
-			add(new Snippet("JavaScript: Hello World","console.log('Hello World!');"));
-			add(new Snippet("HTML: Hello World","<html><body><h1>Hello World</h1></body></html>"));
-		}};
+	private List<Snippet> snippets =  new ArrayList<Snippet>() {{
+		add(new Snippet("JavaScript: Hello World","console.log('Hello World!');"));
+		add(new Snippet("HTML: Hello World","<html><body><h1>Hello World</h1></body></html>"));
+	}};
+	
+	public void save(Snippet snippet){
+		this.snippets.add(snippet);
 	}
 	
+	public List<Snippet> findAll(){
+		return snippets;
+	}
+	
+	public Snippet findById(String id){
+		Optional<Snippet> result = snippets.stream()
+				.filter(snippet -> snippet.getId().equals(id))
+				.findFirst();
+		
+		return result.get();
+	}
 }

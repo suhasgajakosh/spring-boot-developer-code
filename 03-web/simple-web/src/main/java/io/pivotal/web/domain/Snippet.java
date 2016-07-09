@@ -2,26 +2,26 @@ package io.pivotal.web.domain;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
+//Option 1. Add annotation to get XML output in Responses.
+//@XmlRootElement
 public class Snippet {
 
 	private String id;
 	private String title;
 	private String code;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	//Option 2. You can uncomment this as an alternative of the application.properties
+	//@JsonFormat(pattern="yyyy-MM-dd")
 	private Date created;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	//Option 2. You can uncomment this as an alternative of the application.properties
+	//@JsonFormat(pattern="yyyy-MM-dd")
 	private Date modified;
 	
-	public Snippet(){
-		this.id = java.util.UUID.randomUUID().toString();
-	}
+	public Snippet(){}
 	
 	public Snippet(String title, String code) {
-		this();
+		this.id = java.util.UUID.randomUUID().toString();
 		this.title = title;
 		this.code = code;
 		this.created = new Date();
