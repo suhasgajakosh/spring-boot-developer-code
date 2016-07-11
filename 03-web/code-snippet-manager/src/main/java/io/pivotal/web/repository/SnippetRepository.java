@@ -19,8 +19,14 @@ public class SnippetRepository {
 		add(new Snippet("Python: Hello World","print \"Hello World\""));
 	}};
 	
-	public void save(Snippet snippet){
-		this.snippets.add(snippet);
+	public Snippet save(Snippet snippet){
+		assert snippet.getTitle() != null;
+		assert snippet.getCode() != null;
+		
+		Snippet _snippet = new Snippet(snippet.getTitle(),snippet.getCode());
+		
+		this.snippets.add(_snippet);
+		return _snippet;
 	}
 	
 	public List<Snippet> findAll(){
