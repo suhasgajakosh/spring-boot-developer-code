@@ -17,7 +17,7 @@ import io.pivotal.web.domain.Snippet;
 import io.pivotal.web.repository.SnippetRepository;
 
 @RestController
-public class MainController {
+public class SnippetController {
 
 	@Autowired
 	SnippetRepository snippetRepository;
