@@ -36,9 +36,9 @@ public class SnippetRepository {
 				ps.setString(1, _snippet.getId());
 				ps.setString(2, _snippet.getTitle());
 				ps.setString(3, _snippet.getCode());
-				ps.setDate(4, new Date(snippet.getCreated().getTime()));
-				ps.setDate(5, new Date(snippet.getModified().getTime()));
-				return null;
+				ps.setDate(4, new Date(_snippet.getCreated().getTime()));
+				ps.setDate(5, new Date(_snippet.getModified().getTime()));
+				return ps;
 			}
 		});
 		
