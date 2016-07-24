@@ -1,7 +1,5 @@
 package io.pivotal.web.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,12 +16,12 @@ import io.pivotal.web.repository.SnippetRepository;
 
 @RestController
 public class SnippetController {
-
+	
 	@Autowired
 	SnippetRepository snippetRepository;
 	
 	@RequestMapping("/snippets")
-	public List<Snippet> snippets(){
+	public Iterable<Snippet> snippets(){
 		assert snippetRepository != null;
 		return snippetRepository.findAll();
 	}
@@ -31,7 +29,7 @@ public class SnippetController {
 	@RequestMapping("/snippets/{id}")
 	public Snippet snippet(@PathVariable("id") String id){
 		assert snippetRepository != null;
-		return snippetRepository.findById(id);
+		return snippetRepository.findOne(id);
 	}
 	
 	@RequestMapping(value="/snippets",method = { RequestMethod.POST})
@@ -48,10 +46,5 @@ public class SnippetController {
 		
 		return new ResponseEntity<>(_snippet,httpHeaders,HttpStatus.CREATED);
 	}
-	
-	//TODO: Challenge: Depending on the Accept header response a XML or JSON
-	
-	//TODO: Challenge: Add and PUT request method to update a give Snippet based on its ID.
-	
 	
 }
