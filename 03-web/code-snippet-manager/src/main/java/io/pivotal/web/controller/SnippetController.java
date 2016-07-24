@@ -46,7 +46,7 @@ public class SnippetController {
 				.fromCurrentRequest().path("/" + _snippet.getId())
 				.buildAndExpand().toUri());
 		
-		return new ResponseEntity<>(null,httpHeaders,HttpStatus.CREATED);
+		return new ResponseEntity<>(_snippet,httpHeaders,HttpStatus.CREATED);
 	}
 	
 	//TODO: Challenge: Depending on the Accept header response a XML or JSON
