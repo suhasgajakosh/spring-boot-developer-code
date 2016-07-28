@@ -13,7 +13,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.pivotal.messaging.domain.Snippet;
+import io.pivotal.messaging.domain.ServerSnippet;
 
 @SpringBootApplication
 public class SimpleRpcServerRabbitApplication {
@@ -33,7 +33,7 @@ public class SimpleRpcServerRabbitApplication {
 		log.info("Processing...");
 		
 		try {
-			Snippet snippet = mapper.readValue(message, Snippet.class);
+			ServerSnippet snippet = mapper.readValue(message, ServerSnippet.class);
 			assert snippet != null;
 			log.info("Validated: OK");
 		} catch (IOException e) {

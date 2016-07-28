@@ -2,7 +2,7 @@ package io.pivotal.messaging.domain;
 
 import java.util.Date;
 
-public class Snippet {
+public class ServerSnippet {
 
 	private String id;
 	private String title;
@@ -10,9 +10,9 @@ public class Snippet {
 	private Date created;
 	private Date modified;
 	
-	public Snippet(){}
+	public ServerSnippet(){}
 	
-	public Snippet(String title, String code) {
+	public ServerSnippet(String title, String code) {
 		this.id = java.util.UUID.randomUUID().toString();
 		this.title = title;
 		this.code = code;
