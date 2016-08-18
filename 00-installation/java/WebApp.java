@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebApp {
 
 
-     @RequestMapping("/")
-     public String greetings(){
+    @RequestMapping("/")
+    public String greetings() {
         return "Spring Boot Rocks!";
-     }
+    }
 
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(WebApp.class, args);
-     }
+    }
 
 }
