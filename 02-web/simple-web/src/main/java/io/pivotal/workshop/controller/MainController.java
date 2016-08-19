@@ -7,9 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class MainController {
 
-	@RequestMapping("/")
-	public ModelAndView home() {
-		return new ModelAndView("views/home");
-	}
-
+    @RequestMapping("/")
+    public ModelAndView home(){
+        return new ModelAndView("views/home");
+    }
 }
