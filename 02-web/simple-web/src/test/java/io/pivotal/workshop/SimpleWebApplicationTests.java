@@ -1,4 +1,4 @@
-package io.pivotal.web;
+package io.pivotal.workshop;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
