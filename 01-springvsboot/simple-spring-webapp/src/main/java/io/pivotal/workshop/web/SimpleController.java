@@ -7,14 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/showMessage.html")
-public class SimpleController{
- 
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView helloWorld(){
- 
-		ModelAndView model = new ModelAndView("showMessage");
-		model.addObject("message", "Simple Spring MVC Web App");
- 
-		return model;
-	}
+public class SimpleController {
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView helloWorld() {
+
+        ModelAndView model = new ModelAndView("showMessage");
+        model.addObject("message", "Spring MVC Web App with annotations");
+
+        return model;
+    }
 }
