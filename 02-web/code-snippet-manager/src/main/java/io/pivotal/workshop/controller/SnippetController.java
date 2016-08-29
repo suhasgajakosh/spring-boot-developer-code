@@ -1,7 +1,7 @@
 package io.pivotal.workshop.controller;
 
-import java.util.List;
-
+import io.pivotal.workshop.domain.Snippet;
+import io.pivotal.workshop.repository.SnippetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import io.pivotal.workshop.domain.Snippet;
-import io.pivotal.workshop.repository.SnippetRepository;
+import java.util.List;
 
 @RestController
 public class SnippetController {
@@ -20,20 +19,16 @@ public class SnippetController {
 
     @GetMapping("/snippets")
     public List<Snippet> snippets() {
-        assert snippetRepository != null;
         return snippetRepository.findAll();
     }
 
     @GetMapping("/snippets/{id}")
     public Snippet snippet(@PathVariable("id") String id) {
-        assert snippetRepository != null;
         return snippetRepository.findById(id);
     }
 
     @PostMapping("/snippets")
     public ResponseEntity<?> add(@RequestBody Snippet snippet) {
-        assert snippetRepository != null;
-
         Snippet _snippet = snippetRepository.save(snippet);
         assert _snippet != null;
 
@@ -45,9 +40,5 @@ public class SnippetController {
         return new ResponseEntity<>(_snippet, httpHeaders, HttpStatus.CREATED);
     }
 
-    //TODO: Challenge: Depending on the Accept header response a XML or JSON
-
     //TODO: Challenge: Add and PUT request method to update a give Snippet based on its ID.
-
-
 }

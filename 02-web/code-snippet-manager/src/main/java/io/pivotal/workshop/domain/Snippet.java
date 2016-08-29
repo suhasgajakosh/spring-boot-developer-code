@@ -1,9 +1,9 @@
 package io.pivotal.workshop.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
-//Option 1. Add annotation to get XML output in Responses.
-//@XmlRootElement
+@XmlRootElement(name = "snippet")
 public class Snippet {
 
     private String id;
@@ -17,9 +17,6 @@ public class Snippet {
     //Option 2. You can uncomment this as an alternative of the application.properties
     //@JsonFormat(pattern="yyyy-MM-dd")
     private Date modified;
-
-    public Snippet() {
-    }
 
     public Snippet(String title, String code) {
         this.id = java.util.UUID.randomUUID().toString();
