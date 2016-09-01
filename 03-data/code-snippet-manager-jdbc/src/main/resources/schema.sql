@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS snippet;
+
 CREATE TABLE snippet
 (
     id varchar(36) NOT NULL,
