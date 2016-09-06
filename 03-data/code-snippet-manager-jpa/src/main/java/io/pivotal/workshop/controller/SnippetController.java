@@ -18,7 +18,7 @@ public class SnippetController {
     SnippetRepository snippetRepository;
 
     @GetMapping("/snippets")
-    public List<Snippet> snippets() {
+    public Iterable<Snippet> snippets() {
         return snippetRepository.findAll();
     }
 

@@ -58,7 +58,7 @@ public class SnippetRepository {
         return this.jdbcTemplate.query(SQL_QUERY_ALL, rowMapper);
     }
 
-    public Snippet findById(String id) {
+    public Snippet findOne(String id) {
         return this.jdbcTemplate.queryForObject(SQL_QUERY_BY_ID, new Object[]{id}, rowMapper);
     }
 }
