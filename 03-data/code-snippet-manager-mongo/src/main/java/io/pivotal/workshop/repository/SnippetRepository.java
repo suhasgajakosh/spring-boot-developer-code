@@ -1,9 +1,9 @@
-package io.pivotal.web.repository;
+package io.pivotal.workshop.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import io.pivotal.web.domain.Snippet;
+import io.pivotal.workshop.domain.Snippet;
 
-public interface SnippetRepository extends CrudRepository<Snippet,String>{ //Or MongoRepository<Snippet,String>
+public interface SnippetRepository extends CrudRepository<Snippet, String> {
 
 }
