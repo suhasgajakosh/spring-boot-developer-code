@@ -1,6 +1,5 @@
 .DSStore
 target
-.mvn
 .settings
 .classpath
 .project
