@@ -25,7 +25,7 @@ public class ConfigurationPropertiesApplication {
 
 	@RequestMapping("/")
 	public String greetings(){
-		return " Spring Boot!";
+		return personProperties.getGreeting() + " Spring Boot! " + personProperties.getFarewell() + " Spring Boot!";
 	}
 
 
