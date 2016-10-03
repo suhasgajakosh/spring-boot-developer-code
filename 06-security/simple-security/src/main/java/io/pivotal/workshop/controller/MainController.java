@@ -8,7 +8,6 @@ public class MainController {
 
     @GetMapping("/")
     public String helloSecurity() {
-
         return "Hello World! - Secured";
     }
 }
