@@ -1,12 +1,10 @@
 package io.pivotal.workshop;
 
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -36,9 +34,4 @@ public class SimpleRabbitApplication {
 		System.out.println(">>> " + message);
 	}
 
-	@Bean
-	public Queue queue() {
-
-		return new Queue("spring-boot", false);
-	}
 }
