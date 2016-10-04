@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableWebSecurity
 @Configuration
+// Configuring this class prevents the Spring Boot autoconfiguration
+// from happening.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -20,9 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("password").roles("ADMIN");
     }
 
+    // We do not want the default behavior of form authentication
+    // before HTTP Basic authentication we get
+    // from WebSecurityConfigurerAdapter.
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().fullyAuthenticated();
-        http.httpBasic();
+        http.authorizeRequests()
+                .anyRequest().fullyAuthenticated()
+                .and()
+                .httpBasic();
     }
 }
