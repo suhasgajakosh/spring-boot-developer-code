@@ -4,11 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.pivotal.workshop.domain.ServerSnippet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.handler.annotation.SendTo;
 
 import java.io.IOException;
@@ -42,13 +40,4 @@ public class SimpleRpcConsumerRabbitApplication {
 		return "RECEIVED:OK";
 	}
 
-	@Bean
-	public Queue snippet(){
-		return new Queue("snippet");
-	}
-
-	@Bean
-	public Queue snippetReply(){
-		return new Queue("snippet-reply");
-	}
 }
