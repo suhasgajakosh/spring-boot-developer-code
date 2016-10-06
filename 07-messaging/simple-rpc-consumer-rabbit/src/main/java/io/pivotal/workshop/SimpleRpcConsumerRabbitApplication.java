@@ -20,7 +20,7 @@ public class SimpleRpcConsumerRabbitApplication {
 
 	@Bean
 	public Queue queue(){
-		return new Queue("spring-boot");
+		return new Queue("spring-boot", false);
 	}
 
 }
