@@ -13,26 +13,32 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@SpringBootApplication
 @EnableScheduling
+@SpringBootApplication
 public class SimpleRpcProducerRabbitApplication {
 
-	public static void main(String[] args) {
+    private final RabbitTemplate template;
 
-		SpringApplication.run(SimpleRpcProducerRabbitApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SimpleRpcProducerRabbitApplication.class, args);
+    }
 
+    @Autowired
+    public SimpleRpcProducerRabbitApplication(RabbitTemplate template) {
+        this.template = template;
+    }
 
-	@Autowired
-	private RabbitTemplate rabbitTemplate;
+    @Scheduled(fixedRate = 1000)
+    public void sendMessage() {
+        String timestamp = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        String message = "Hello world! " + timestamp;
 
-	@Scheduled(fixedDelay = 1000L)
-	public void send() {
-		this.rabbitTemplate.convertAndSend("spring-boot", "Hello World! at " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
-	}
+        this.template.convertAndSend("spring-boot", message);
+    }
 
-	@Bean
-	public Queue queue(){
-		return new Queue("spring-boot", false);
-	}
+    @Bean
+    public Queue queue() {
+        return new Queue("spring-boot", false);
+    }
+
 }
