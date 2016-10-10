@@ -1,6 +1,6 @@
 package io.pivotal.workshop;
 
-import io.pivotal.workshop.domain.Snippet;
+import io.pivotal.workshop.domain.SnippetNotifier;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
@@ -34,8 +34,8 @@ public class SnippetConsumerApplication {
 	}
 
 	@RabbitListener(queues = "spring-boot")
-	public void receiveMessage(Snippet snippet) {
-		System.out.println("Received <" + snippet.getTitle() + " on " + snippet.getCreated() +">");
+	public void receiveMessage(SnippetNotifier snippetNotifier) {
+		System.out.println("Received <" + snippetNotifier.getTitle() + " on " + snippetNotifier.getCreated() +">");
 	}
 
 	@Bean
