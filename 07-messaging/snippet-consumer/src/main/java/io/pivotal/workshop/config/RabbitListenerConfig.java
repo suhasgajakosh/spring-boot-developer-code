@@ -1,5 +1,6 @@
 package io.pivotal.workshop.config;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -24,5 +25,10 @@ public class RabbitListenerConfig {
         factory.setConnectionFactory(this.connectionFactory);
         factory.setMessageConverter(new Jackson2JsonMessageConverter());
         return factory;
+    }
+
+    @Bean
+    public Queue queue(){
+        return new Queue("spring-boot", false);
     }
 }

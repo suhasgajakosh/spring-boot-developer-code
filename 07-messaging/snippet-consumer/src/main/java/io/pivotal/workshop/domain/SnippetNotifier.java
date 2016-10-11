@@ -9,12 +9,6 @@ public class SnippetNotifier {
 
     public SnippetNotifier(){}
 
-    public SnippetNotifier(String title, Date date) {
-        this.title = title;
-        this.created = date;
-    }
-
-
     public String getTitle() {
         return title;
     }
